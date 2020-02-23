@@ -1,0 +1,50 @@
+ <!DOCTYPE html>
+ <html ng-app>
+ <head>
+ 	<meta charset="utf-8">
+ 	<title>Carrilivros</title>
+ 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+ 	<link rel="stylesheet" href="css/app.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+	<script src="app.js"></script>
+
+ </head>
+ <body>
+ 	<div id="header-wrapper" ng-controller="HeaderCtrl">
+            <span class="logo pull-left">{{appDetails.title}}</span>
+            <span class="tagline pull-left">{{appDetails.tagline}}</span>
+            <div class="nav-wrapper pull-left">
+                <ul class="nav nav-pills">
+                    <li class="active"><a href="#">Livros</a></li>
+                    <li><a href="#">Carrinho</a></li>
+                </ul>
+            </div>
+            <div id="a"></div>
+        </div>
+        <div id="bookListWrapper" ng-controller="BookListCtrl">
+        	<form role="form">
+        		<div class="form-group">
+        			<input type="text" class="form-control" placeholder="Search here...">
+        		</div>
+        	</form>
+        	<div>
+        		<ul class="list-unstyled">
+        			<li class="book" style="background: white url{{book.url}} no-repeat" ng-repeat="book in books">
+        				<div class="book-details clearfix">
+        					<h3>{{book.titulo}}</h3>
+        					<p>{{book.preco}}</p>
+        					<ul class="list-unstyled" list-inline>
+        						<li>Avaliação: {{book.avaliacao}}</li>
+        						<li>Editora: {{book.editora}}</li>
+        						<li>Classificação etária: {{book.classificacao}}</li>
+        						<li>Lançamento: {{book.lancamento}}</li>
+        					</ul>
+        					<button class="btn btn-info pull-right" ng-click="addToKart(book)">Add to Kart</button>
+        				</div>
+        			</li>
+        		</ul>
+        	</div>
+        </div>
+ 
+ </body>
+ </html>
